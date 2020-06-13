@@ -1,0 +1,74 @@
+{% extends './block.html' %}
+{% block desc %}
+
+<div class="s-content">
+        <h2>Find scholarly articles</h2>
+        <hr>
+        <h3>Choose subject - </h3>
+        <hr>
+            <div class="masonry-wrap">
+
+                <div class="masonry">
+
+
+                    <div class="grid-sizer"></div>
+
+                    {% for tag in tags %}
+
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                     
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+                                {% if request.args.get('num')%}
+                                <h2 class="entry__title">{{loop.index+ (10* ((request.args.get('num') | int)-1))}}. <a href="{{url_for('articles',type=tag[1])}}">{{tag[1]}}</a></h2>
+                                {% else %}
+                                <h2 class="entry__title">{{loop.index}}. <a href="{{url_for('articles',type=tag[1])}}">{{tag[1]}}</a></h2>
+                                {%endif%}
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="{{url_for('articles',type=tag[1])}}">{{tag[0]}}</a>
+                                     
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                <p>
+                                {{tag[2]}}
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+                <div class="row" style="box-sizing:content-box;">
+                <div class="column large-full">
+                    <nav class="pgn">
+                        <ul>
+                            <li><a class="pgn__prev" href="{{prev}}">Prev</a></li>
+                            <li><p style="margin:13% 0 0 0;">Showing page 
+                                    <select id="page" name="page" required onchange="location = this.value;">
+                                        <option value="" selected>{{page}}</option>
+                                        {% for i in range(length//10) %}
+                                        <option value="{{url_for('tags',num=i+1)}}">{{i+1}}</option>
+                                        {% endfor %}
+                                    </select> 
+                                out of {{length//10}}</p>
+                            </li>
+                            <li><a class="pgn__next" href="{{next}}">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+{% endblock %}

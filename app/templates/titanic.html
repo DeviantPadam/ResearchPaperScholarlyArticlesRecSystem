@@ -1,0 +1,227 @@
+{% extends './block.html' %}
+{% block desc %}
+
+<div class="s-content content">
+    <h2>Titanic Survival Checker</h2>
+    <hr>
+    <h2>Did you know - </h2>
+    <hr>
+    <div class="masonry-wrap">
+
+        <div class="masonry">
+            <div class="grid-sizer"></div>
+            {% if fact_num==1 %}
+            <article class="masonry__brick entry format-standard animate-this " style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">31.6%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The percentage of people aboard (passengers and crew) who survived the sinking.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==2 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">53.4%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The total percentage who could have survived, given the number of spaces available on the lifeboats.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==3 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">61%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The percentage of First (Upper) Class passengers who survived.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==4 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">42%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The percentage of Standard (Middle) Class passengers who survived .
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==5 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">24%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The percentage of Third (Lower) Class passengers who survived.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==6 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">20%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The percentage of male passengers who survived.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==7 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">75%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The percentage of female passengers who survived.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+
+            {% if fact_num==8 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">0%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The percentage of Engineering Officers who survived (all 25 perished, bravely working to keep the ship afloat for as long as possible).
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+
+            {% if fact_num==9 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">2 months, 13 days</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The age of the the youngest survivor overall, Miss Elizabeth Gladys “Millvina” Dean (from third class).
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+
+            {% endif %}
+            {% if fact_num==10 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">64 years, 8 months, 8 days</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        The age of the oldest survivor overall from first class, Mrs Mary Eliza Compton.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+        </div>
+    </div>
+	<main class="row content__page">
+	    <section class="column large-full entry format-standard">
+	    	<h2>Could you survive RMS Titanic sinking?</h2>
+			<form name="contactForm" id="contactForm" method="post" action="/result" autocomplete="on"> 
+                <fieldset>
+                    <select id="title" name="title" required style="width:25%;">
+                        <option value="" disabled selected hidden>Select Name title...</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Master">Master</option>
+                        <option value="Others">Others</option>
+                    </select>
+
+                    <input name="name" id="name" placeholder="Your Name" value="" type="text" required style="width:50%;">
+                    
+                    <select id="sex" name="sex" required style="width:15%;">
+                        <option value="" disabled selected hidden>Gender...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="" disabled>Sorry for others!</option>
+                    </select>
+                	
+                    <input name="age" style="width:45%;" id="age" placeholder="Your Age" value="" type="number" step="1" min="0" max="110" pattern="\d+" required>
+                    <select id="pclass" name="pclass" required style="width:45%;">
+                        <option value="" disabled selected hidden>Your economic status...</option>
+                        <option value="1">Upper Class (Ameer)</option>
+                        <option value="2">Middle Class (Aam aadmi)</option>
+                        <option value="3">Lower Class (APL)</option>
+                    </select>
+                    
+                    <select id="alone" name="alone" required style="width:25%;">
+                        <option value="" disabled selected hidden>Travelling ...</option>
+                        <option value="1">Alone</option>
+                        <option value="0">With Family!</option>
+                    </select>
+
+                    <input name="family" id="family" placeholder="Family size" value="" type="number" step="1" pattern="\d+" required style="width:25%;">
+                    <input name="fare" class="full-width" id="fare" placeholder="Fare price(starts from $40)" value="" type="number"  pattern="\d+" min="40" required  style="width:40%;">
+
+                    <select id="embark" name="embark" required class="full-width">
+                        <option value="" disabled selected hidden>Port of Embarkation...</option>
+                        <option value="C">Cherbourg</option>
+                        <option value="Q">Queenstown</option>
+                        <option value="S">Southampton</option>
+                    </select>
+                    
+  
+    
+                            <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Submit" type="submit">
+    
+
+			    </fieldset>
+			</form>
+		</section>
+	</main>
+</div>
+
+
+{% endblock %}

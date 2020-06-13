@@ -1,0 +1,168 @@
+{% extends './block.html' %}
+{% block desc %}
+<div class="s-content">
+	<h2>Your Survival Chances - {{ result }}</h2>
+	<hr>
+	<h3>Some Interesting Facts!!</h3>
+	<hr>
+	<div class="masonry-wrap">
+
+        <div class="masonry">
+			<div class="grid-sizer"></div>
+
+			{% if fact_num==1 %}
+			<article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">2</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The number of dogs believed to have survived (both were lapdogs taken onto lifeboats by their owners).
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==2 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">22%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The percentage of male crew members who survived.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+	        {% if fact_num==3 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">87%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The percentage of female crew members who survived
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==4 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">42%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The percentage of Standard (Middle) Class passengers who survived .
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==5 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">50%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The percentage of Navigation Officers who survived (4 out of 8).
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==6 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">5 months, 7 days</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The age of the youngest male survivor from third class, Master As’ad Tannūs.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==7 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">62 years, 1 month</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The age (approximate, exact date of birth not known) of the oldest male survivor from second class, Mr George Harris.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==8 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">0%</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The percentage of Engineering Officers who survived (all 25 perished, bravely working to keep the ship afloat for as long as possible).
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==9 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">2 months, 13 days</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The age of the the youngest survivor overall, Miss Elizabeth Gladys “Millvina” Dean (from third class).
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+            {% if fact_num==10 %}
+            <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+				<div class="entry__text">
+                    <div class="entry__header">
+                        <h2 class="entry__title">64 years, 8 months, 8 days</h2>    
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                    	The age of the oldest survivor overall from first class, Mrs Mary Eliza Compton.
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+            {% endif %}
+
+        </div>
+    </div>
+    <button class="btn btn--primary btn-wide btn--large"><a href="{{url_for('titanic_app.titanic')}}">Back</a></button>
+</div>
+{% endblock %}

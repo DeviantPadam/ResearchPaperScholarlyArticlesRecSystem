@@ -1,0 +1,87 @@
+{% extends './block.html' %}
+{% block desc %}
+
+<!-- <form action="/search" method=post>
+<div class="search input-group">
+    <input type="text" name=search value="{{ request.form.search}}" class="form-control" placeholder="Enter a Topic" aria-describedby="basic-addon1">
+    <div class="actions input-group-btn"><button class="btn btn-success" type="submit">Search</button></div>
+</div>
+</form> -->
+
+{% if message|length==0 %}
+<div class="s-content">
+<h1 class="text-warning">Not Found!</h1>
+</div>
+{%else%}
+<div class="s-content">
+
+            <div class="masonry-wrap">
+
+                <div class="masonry">
+
+                    <div class="grid-sizer"></div>
+
+                    {% for i in message %}
+
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                     
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+                                {% if request.args.get('num')%}
+                                <h2 class="entry__title">{{loop.index+ (10* ((request.args.get('num') | int)-1))}}. <a href="{{url_for('models',type=i[0])}}">{{ i[1] }}</a></h2>
+                                {%else%}
+                                <h2 class="entry__title">{{loop.index}}. <a href="{{url_for('models',type=i[0])}}">{{ i[1] }}</a></h2>
+                                {%endif%}
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="{{url_for('models',type=i[0])}}">id. {{ i[0] }}</a>
+                                        
+                                    </span>
+                                    <span class="entry__meta-date">
+                                        <a href="{{url_for('articles',type=i[2])}}">{{ i[2] }}</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                <p>
+                                Authors - {{ i[3] }} and {{i[4]}}
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+             <div class="row" style="box-sizing:content-box;">
+                <div class="column large-full">
+                    <nav class="pgn">
+                        <ul>
+                            <li><a class="pgn__prev" href="{{prev}}">Prev</a></li>
+                            <li><p style="margin:13% 0 0 0;">Showing page 
+                                    <select id="page" name="page" required onchange="location = this.value;">
+                                        <option value="" selected>{{page}}</option>
+
+                                        {% for i in range(length//10+1) %}
+                                        <option value="{{url_for('articles',type=name,num=i+1)}}">{{i+1}}</option>
+                                        {% endfor %}
+                                    </select> 
+                                out of {{length//10+1}}</p>
+                            </li>
+                            <li><a class="pgn__next" href="{{next}}">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                </div>
+        </div>
+
+
+
+
+{%endif%}
+{% endblock %}

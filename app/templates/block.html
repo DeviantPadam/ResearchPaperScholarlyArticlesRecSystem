@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <meta charset="utf-8">
+    {% if title %}
+    <title>DeviantPadam - {{ title }}</title>
+    {% else %}
+    <title>DeviantPadam - Scholarly Articles Recommender System</title>
+    {% endif %}
+    <meta name="description" content="Contains Scholarly Articles based on Computer Science subjects.">
+    <meta name="author" content="Padam Gupta">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="static/css/vendor.css">
+    <link rel="stylesheet" href="static/css/main.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image/x-icon" href="static/img/icons/favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+
+
+    <script src="static/js/modernizr.js"></script>
+
+
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="{{url_for('tags')}}" >
+                        <img style="height:100%"; src="static/img/logo.png" alt="Homepage">
+                    </a>
+                </div>
+
+                <div class="header__search">
+    
+                    <form role="search" method="post" class="header__search-form" action="/search">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="search" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="header__search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__search-close">Close</a>
+        
+                </div>  <!-- end header__search -->
+
+                <!-- toggles -->
+                <a href="#0" class="header__search-trigger"></a>
+                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+            </div>
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <li class="current"><a href="{{url_for('tags')}}" title="">Home</a></li>
+                    <li><a href="{{url_for('tags')}}" title="">Subjects</a></li>
+                    <li><a href="{{url_for('titanic_app.titanic')}}" title="">Titanic Suvival Checker!!</a></li>
+                    <li><a href="{{url_for('about')}}" title="">About me!</a></li>
+                    <li><a href="{{url_for('about')}}#contact" title="">Contact me!</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-facebook">
+                        <a href="https://www.facebook.com/padam.gupta.3766" target="_blank" rel="noopener noreferrer">
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="ss-github">
+                        <a href="http://github.com/DeviantPadam/" target="_blank" rel="noopener noreferrer">
+                            <span class="screen-reader-text">Github</span>
+                        </a>
+                    </li>
+                    <li class="ss-linkedin">
+                        <a href="https://www.linkedin.com/in/deviantpadam/" target="_blank" rel="noopener noreferrer">
+                            <span class="screen-reader-text">LinkdedIn</span>
+                        </a>
+                    </li>
+                    <li class="ss-blog">
+                        <a href="https://deviantpadam.github.io" target="_blank" rel="noopener noreferrer">
+                            <span class="screen-reader-text">Web</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+
+        </header> <!-- end s-header -->
+
+                          {% block desc %} {% endblock %}
+         
+
+
+        <!-- footer -->
+        <footer class="s-footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                    <div class="footer__copyright">
+                        <span>© Deviant Padam</span>
+                        <span>Design by <a href="https://deviantpadam.github.io" target="_blank" rel="noopener noreferrer">Padam Gupta</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script -->
+    <script src="static/js/jquery-3.2.1.min.js"></script>
+    <script src="static/js/plugins.js"></script>
+    <script src="static/js/main.js"></script>
+
+</body>

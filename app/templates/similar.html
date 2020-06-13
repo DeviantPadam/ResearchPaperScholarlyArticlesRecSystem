@@ -1,0 +1,101 @@
+{% extends './block.html' %}
+{% block desc %}
+
+<div class="s-content content">
+            <main class="row content__page">
+                
+                <article class="column large-full entry format-standard">
+
+                  
+
+                    <div class="content__page-header entry__header">
+                        <h1 class="display-1 entry__title">
+                        {{ topic_open[0][2] }}
+                        </h1>
+                        <ul class="entry__header-meta">
+                            <li class="date">id. {{ topic_open[0][0] }}</li>
+                            <li class="author">By {{ topic_open[0][8] }} and {{ topic_open[0][9] }}</li>
+                            <li class="date"> Year - {{ topic_open[0][3]}}</li>
+                            <li class="cat-links">
+                                <a href="{{url_for('articles',type=topic_open[0][4])}}">1. {{ topic_open[0][4] }} </a>
+                                <a href="{{url_for('articles',type=topic_open[0][5])}}">2. {{ topic_open[0][5] }} </a>
+                                <a href="{{url_for('articles',type=topic_open[0][6])}}">3. {{ topic_open[0][6] }}</a>
+                            </li>
+                            <li>
+                              <hr>
+                              <a  href={{ topic_open[0][10] }}> Text Link</a>
+                              <a  href={{ topic_open[0][11] }}> pdf Link</a>
+                              <hr>
+                            </li>
+                        </ul>
+                    </div> <!-- end entry__header -->
+
+                    <div class="entry__content">
+
+                        <p class="lead drop-cap">
+                        {{ topic_open[0][1] }}
+                        </p>
+                        
+                    </div> 
+                  </article>
+                </main>
+                <hr>
+              </div>
+
+
+
+<div class="s-content">
+  <hr>
+  <h1 >Similar articles you may like!</h1>
+  <hr>
+
+            <div class="masonry-wrap">
+
+                <div class="masonry">
+
+                    <div class="grid-sizer"></div>
+
+                    {% for i in results %}
+
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                     
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+
+                                <h2 class="entry__title">{{loop.index}}. <a href="{{url_for('models',type=i[0])}}">{{ i[2] }}</a></h2>
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="{{url_for('models',type=i[0])}}">id. {{ i[0] }}</a>
+                                        <a href="{{url_for('articles',type=i[4])}}">{{ i[4] }} </a>
+                                        <a href="{{url_for('articles',type=i[5])}}"> {{ i[5] }} </a>
+                                        <a href="{{url_for('articles',type=i[6])}}"> {{ i[6] }}</a>
+                                    </span>
+                                    <span class="entry__meta-date">
+                                        <p>{{ i[3] }}</p>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                
+                                <p>Authors - {{ i[8] }} and {{ i[9] }}</p>
+                                <hr>
+                                <p>Recommendation Probability - {{ message[i[0]] }}</p>
+                            </div>
+                        </div>
+
+                    </article>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+{% endblock %}
