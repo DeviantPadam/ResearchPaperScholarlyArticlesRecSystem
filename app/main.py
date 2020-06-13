@@ -116,7 +116,7 @@ def search():
         search = request.form['search']
         session['name'] = search
     if 'name' in session:
-        c.execute('SELECT * FROM data WHERE data =?',(session['name'],))
+        c.execute('SELECT * FROM data WHERE data MATCH ?',(session['name'],))
         results = c.fetchall()
     # print(topic_open[0])
     length=len(results)
