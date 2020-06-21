@@ -1,4 +1,4 @@
-# recommender_syster_doc2vec
+# recommender_system_research_papers_or_scholarly_articles_doc2vec
 Recommender system for Scholarly Articles 
 Dataset available at <link>https://www.kaggle.com/neelshah18/arxivdataset</link> and text file for topics explanation is copied from </link>https://arxiv.org/archive/cs</link>
 * Source notebook available at <link>https://www.kaggle.com/deviantpadam/scholarly-articles-recommender-system-doc2vec</link>
